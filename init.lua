@@ -563,6 +563,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         pyright = {},
+        java_language_server = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -619,7 +620,14 @@ require('lazy').setup({
       }
     end,
   },
-
+  {
+    'ray-x/lsp_signature.nvim',
+    event = 'VeryLazy',
+    opts = {},
+    config = function(_, opts)
+      require('lsp_signature').setup(opts)
+    end,
+  },
   { -- Autoformat
     'stevearc/conform.nvim',
     opts = {
